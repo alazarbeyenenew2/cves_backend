@@ -6,7 +6,7 @@ create table notification_rules(
     get_immediate_notification_for_selected_domains boolean not null default true,
     selected_domains varchar[],
     created_at timestamp not null default now(),
-    updated_at timestamp now null default now(),
+    updated_at timestamp not null default now(),
     deleted_at timestamp,
     CONSTRAINT fk_user_id_notification_rules FOREIGN KEY (user_id)  REFERENCES users(id) ON UPDATE CASCADE ON DELETE SET NULL
 );

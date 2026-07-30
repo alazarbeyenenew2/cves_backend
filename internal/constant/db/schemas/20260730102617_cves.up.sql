@@ -12,7 +12,7 @@ create table cves (
     attack_type VARCHAR(50),
     year SMALLINT,
     cpe_uri TEXT,
-    references TEXT[],
+    reference TEXT[],
     created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
