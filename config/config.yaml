@@ -1,0 +1,23 @@
+db:
+  name: cves
+  host: localhost
+  port: 5432
+  user: test_user
+  password: secret_password
+  ssl_mode: disable
+
+app:
+  host: 0.0.0.0
+  port: 8081
+  timeout: 10s
+  env: production
+auth:
+  jwt_secret: IGg}C9D1#FGz08
+workerpool:
+  max_workers: 1000
+  task_buffer: 10000
+redis:
+  url: redis://localhost:6379
+swagger:
+  username: swaggerAdminUser
+  password: swaggerAdminPassword@#@$@223
