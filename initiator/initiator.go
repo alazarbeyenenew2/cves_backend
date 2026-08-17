@@ -67,8 +67,14 @@ func Initiate() {
 	persistence := initPersistence(&persistenceDB, redisPool, logger)
 	log.Named("initialization").Info("initializing persistence layer completed")
 
+	log.Named("initialization").Info("initializing platform layer")
+	platform := initPlatform(logger)
+	log.Named("initialization").Info("initializing platform completed")
+
 	log.Named("initialization").Info("initializing module layer")
-	module := initModule(persistence, logger, wp)
+	module := initModule(persistence, logger, wp, platform)
+	module.NVD.Start()
+	module.NVD.TriggerNow()
 	log.Named("initialization").Info("initializing module layer completed")
 
 	log.Named("initialization").Info("initializing handler layer")
